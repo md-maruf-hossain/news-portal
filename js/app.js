@@ -99,7 +99,6 @@ const displayModal = (modals) => {
 
   modalContainer.textContent = "";
   for (const modal of modals) {
-    loadingSpinner(true);
     const modalDiv = document.createElement("div");
     modalDiv.innerHTML = `
     <h5>News Title: ${modal.title}</h5>
