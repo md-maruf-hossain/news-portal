@@ -39,7 +39,7 @@ const displayClickedCatagory = (clickedCatagories) => {
             <h5 class="card-title">${clickedCatagory.title.length > 30 ? clickedCatagory.title.slice(0, 40) + "..." : clickedCatagory.title}</h5>
             <p class="card-text">${clickedCatagory.details.length > 30 ? clickedCatagory.details.slice(0, 100) + "..." : clickedCatagory.details}</p>
               <div>
-
+                <img class ="author-img" src ="${clickedCatagory.author.img}">
               </div>
           </div>
       </div>
