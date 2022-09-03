@@ -38,9 +38,28 @@ const displayClickedCatagory = (clickedCatagories) => {
         <div class="card-body">
             <h5 class="card-title">${clickedCatagory.title.length > 30 ? clickedCatagory.title.slice(0, 40) + "..." : clickedCatagory.title}</h5>
             <p class="card-text">${clickedCatagory.details.length > 30 ? clickedCatagory.details.slice(0, 100) + "..." : clickedCatagory.details}</p>
-              <div>
-                <img class ="author-img" src ="${clickedCatagory.author.img}">
-              </div>
+              <div class="d-flex justify-content-between">
+                <div>
+                  <img class ="author-img me-2" src ="${clickedCatagory.author.img}">
+                  <p>
+                  ${clickedCatagory.author.name ? clickedCatagory.author.name : 'No author found'} 
+                  <br> 
+                  ${clickedCatagory.author.published_date ? clickedCatagory.author.published_date : "no date found"}
+                  </p>
+                  </div>
+                <div>
+                  <i class="fa-sharp fa-solid fa-eye">${clickedCatagory.total_view}</i>
+                    <div>
+                      <i class="fa-sharp fa-solid fa-star"></i>
+                      <i class="fa-sharp fa-solid fa-star"></i>
+                      <i class="fa-sharp fa-solid fa-star"></i>
+                      <i class="fa-sharp fa-solid fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                    </div>
+                    <button type="button" class="btn btn-primary mt-2">Details</button>
+                </div>
+                  
+                  </div>
           </div>
       </div>
     `;
