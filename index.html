@@ -39,11 +39,33 @@
       </nav>
     </header>
     <main>
+      <!-- items founded -->
       <section class="w-75 mx-auto my-5">
-          <div class="p-3 mb-2 bg-light bg-opacity-75 text-dark"><span id="items-found">0</span> items found for category Entertainment</div>
+          <div class="p-3 mb-2 bg-light bg-opacity-75 text-dark"><span id="items-found">0</span> items found</div>
+      </section>
+      <!-- sort by view and buttons -->
+      <section class="container w-75 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-flex d-flex justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between flex-row">
+         <div>
+          <a>Sort By View:</a>
+          <div class="btn-group ms-2">
+            <button class="btn btn-white border-dark btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Default
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item active" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+         </div>
+         <!-- buttons -->
+         <div class="d-xxl-block d-xl-block d-lg-block d-md-block d-sm-block d-none">
+          <button type="button" class="btn btn-primary me-3">Primary</button>
+          <button type="button" class="btn btn-outline-primary">Primary</button>
+         </div>
       </section>
       <!-- catagories -->
-      <section class="container mt-3">
+      <section class="container mt-5">
         <div id="catagory-section" class="d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-flex d-block text-center justify-content-around fs-5">
         </div>
         <!-- not found -->
