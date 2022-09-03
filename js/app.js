@@ -3,8 +3,8 @@ const loadCatagories = () => {
   try {
     const url = "https://openapi.programming-hero.com/api/news/categories";
     fetch(url)
-    .then((res) => res.json())
-    .then((data) => displayCatagories(data.data.news_category));
+      .then((res) => res.json())
+      .then((data) => displayCatagories(data.data.news_category));
   } catch (error) {
     console.log(error);
   }
@@ -22,14 +22,13 @@ function displayCatagories(catagories) {
   }
 }
 
-
 const clickedCatagoryLoad = (newsId) => {
   try {
     loadingSpinner(true);
     const url = `https://openapi.programming-hero.com/api/news/category/${newsId}`;
     fetch(url)
-    .then((res) => res.json())
-    .then((data) => displayClickedCatagory(data.data));
+      .then((res) => res.json())
+      .then((data) => displayClickedCatagory(data.data));
   } catch (error) {
     console.log(error);
   }
@@ -46,7 +45,8 @@ const displayClickedCatagory = (clickedCatagories) => {
   } else {
     notFoundMessage.classList.add("d-none");
   }
-  
+  const itemsFounded = document.getElementById("items-found");
+  itemsFounded.innerText = clickedCatagories.length;
   for (const clickedCatagory of clickedCatagories) {
     const clickedCatagoriesDiv = document.createElement("div");
     clickedCatagoriesDiv.classList.add("col");
@@ -88,16 +88,15 @@ const news_id = (news_id) => {
   try {
     const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
     fetch(url)
-    .then((res) => res.json())
-    .then((data) => displayModal(data.data));
+      .then((res) => res.json())
+      .then((data) => displayModal(data.data));
   } catch (error) {
     console.log(error);
   }
 };
 const displayModal = (modals) => {
-  
   const modalContainer = document.getElementById("modal-body");
-  
+
   modalContainer.textContent = "";
   for (const modal of modals) {
     loadingSpinner(true);
