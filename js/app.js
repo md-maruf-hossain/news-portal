@@ -26,7 +26,7 @@ const clickedCatagoryLoad = (newsId) => {
 };
 
 const displayClickedCatagory = (clickedCatagories) => {
-  console.log(clickedCatagories);
+  // console.log(clickedCatagories);
   const clickedCatagoriesSection = document.getElementById("news-container");
   clickedCatagoriesSection.textContent = "";
   for (const clickedCatagory of clickedCatagories) {
@@ -42,13 +42,13 @@ const displayClickedCatagory = (clickedCatagories) => {
                 <div>
                   <img class ="author-img me-2" src ="${clickedCatagory.author.img}">
                   <p>
-                  ${clickedCatagory.author.name ? clickedCatagory.author.name : 'No author found'} 
+                  ${clickedCatagory.author.name ? clickedCatagory.author.name : "No author found"} 
                   <br> 
                   ${clickedCatagory.author.published_date ? clickedCatagory.author.published_date : "no date found"}
                   </p>
                   </div>
                 <div>
-                  <i class="fa-sharp fa-solid fa-eye">${clickedCatagory.total_view}</i>
+                  <i class="fa-sharp fa-solid fa-eye"> ${clickedCatagory.total_view}</i>
                     <div>
                       <i class="fa-sharp fa-solid fa-star"></i>
                       <i class="fa-sharp fa-solid fa-star"></i>
@@ -56,9 +56,8 @@ const displayClickedCatagory = (clickedCatagories) => {
                       <i class="fa-sharp fa-solid fa-star"></i>
                       <i class="fa-regular fa-star"></i>
                     </div>
-                    <button type="button" class="btn btn-primary mt-2">Details</button>
+                    <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="news_id('${clickedCatagory._id}')">More Details</button>
                 </div>
-                  
                   </div>
           </div>
       </div>
@@ -66,4 +65,30 @@ const displayClickedCatagory = (clickedCatagories) => {
     clickedCatagoriesSection.appendChild(clickedCatagoriesDiv);
   }
 };
+const news_id = (news_id) => {
+  const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayModal(data.data));
+};
+const displayModal = (modals) => {
+  console.log(modals);
+  const modalContainer = document.getElementById("modal-body");
+  modalContainer.textContent = "";
+  for (const modal of modals) {
+    const modalDiv = document.createElement("div");
+    modalDiv.innerHTML = `
+    <h5>News Title: ${modal.title}</h5>
+    <p class= "fs-5">News Author: ${modal.author.name}</p>
+    <p class= "fs-5">Oublished Date: ${modal.author.published_date}</p> 
+    `;
+    modalContainer.appendChild(modalDiv);
+  }
+};
+
 loadCatagories();
+
+{
+  /*
+   */
+}
