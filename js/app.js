@@ -37,6 +37,13 @@ const displayClickedCatagory = (clickedCatagories) => {
   // console.log(clickedCatagories);
   const clickedCatagoriesSection = document.getElementById("news-container");
   clickedCatagoriesSection.textContent = "";
+  // not found message
+  const notFoundMessage = document.getElementById("not-found-message");
+  if (clickedCatagories.length === 0) {
+    notFoundMessage.classList.remove("d-none");
+  } else {
+    notFoundMessage.classList.add("d-none");
+  }
   for (const clickedCatagory of clickedCatagories) {
     const clickedCatagoriesDiv = document.createElement("div");
     clickedCatagoriesDiv.classList.add("col");
